@@ -11,7 +11,7 @@ services:
     depends_on:
       - java_db
     environment:
-      - DATABASE_URL=jdbc:postgresql://java_db:5432/postgres
+      - java_db=jdbc:postgresql://java_db:5432/postgres
       
   java_db:
     container_name: java_db
