@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+    
+    <div class="container">
+        <div>
+            <h1>Lista de usuarios</h1>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Usuarios
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                    <tr th:each="usr : ${users} ">
+                        <td th:text="${usr.id}" ></td>
+                        <td th:text="${usr.name}" ></td>
+                        <td>
+                            <a class="btn btn-info " th:href="@{'/editar/'+ ${usr.id}}">Editar</a>
+                            <a class="btn btn-danger " th:href="@{'/eliminar/'+ ${usr.id}}"
+                            onclick="return confirm('Seguro deseas eliminar este registro?')"
+                            >Eliminar</a>
+
+                        </td>
+
+                    </tr>
+<!--
+                    <tr th:each="usr: ${users}">
+                        <td th:text="${usr.id}"></td>
+                        <td th:text="${usr.name}"></td>
+                        <td>
+                            <a class="btn btn-info" th:href="@{'/editar'+ ${user.id}}">Editar</a>
+                            <a class="btn btn-danger" th:href="@{'/eliminar'+ ${user.id}}"
+                            onclick="return confirm('Eliminaras el registro?')"
+                            >Eliminar</a>
+                        </td>
+                    </tr>
+-->
+                </table>
+
+                <a class="btn btn-dark" href="/nuevo">Agregar nuevo usuario</a>
+
+            </div>
+        </div>
+    </div>
+    <br/>
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="container-fluid">
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: rgba(0, 0, 0, 0.2)">
+      <!-- Grid container -->
+      <div class="container">
+        <!-- Section: Links -->
+        <section class="mb-2">
+          <!-- Grid row-->
+          <div class="row text-center d-flex justify-content-center pt-5">
+            <!-- Grid column -->
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="#!" class="text-white">Integrantes</a>
+              </h6>
+            </div>
+        </section>
+            <!-- Grid column -->
+            <!-- Section: Text -->
+        <section class="mb-2">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+              <p>
+                Milton Obed Alas Hernandez - AH09062<br/>
+         		Lilian Sofia Tejada Villatoro - TV22008<br/>
+          		David Alfredo Parada Mendoza - PM13119
+                <a href="https://docs.github.com/es" class="text-white me-4" target="_blank">
+                  <i class="fab fa-github"></i>Documentacion de GitHub</a>
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Section: Text -->
+      </div>
+      <!-- Grid container -->
+  
+      <!-- Copyright -->
+      <div
+           class="text-center p-2"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2024 Copyright: Desarrollo de Aplicaciones Web
+    
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+  <!-- End of .container -->
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Usuarios</title>
+    <link th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body style="background-color: #CCCCCC;">
+    <div class="container" >
+    <h1>Formulario de Usuarios</h1>
+    
+
+    <div class="card">
+        <div class="card-header">
+          Agregar
+        </div>
+        <div class="card-body">
+            <form method="post" th:object="${usuario}" th:action="@{/nuevo}">
+                <input type="hidden" th:field="*{id}">
+                <div class="mb-3">
+                <label class="form-label" for="nombre">Nombre:</label>
+                <input class="form-control " type="text" id="name" th:field="*{name}">
+                </div>
+                
+                <button class="btn btn-primary " type="submit">Guardar</button>
+                <a class="btn btn-light" href="/users">Volver a la lista</a>
+            </form>
+           
+        
+        </div>
+      </div>
+</div>
+<br/>
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="container-fluid">
+    <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: rgba(0, 0, 0, 0.2)">
+      <!-- Grid container -->
+      <div class="container">
+        <!-- Section: Links -->
+        <section class="mb-2">
+          <!-- Grid row-->
+          <div class="row text-center d-flex justify-content-center pt-5">
+            <!-- Grid column -->
+            <div class="col-md-2">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="#!" class="text-white">Integrantes</a>
+              </h6>
+            </div>
+        </section>
+            <!-- Grid column -->
+            <!-- Section: Text -->
+        <section class="mb-2">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+              <p>
+                Milton Obed Alas Hernandez - AH09062<br/>
+         		    Lilian Sofia Tejada Villatoro - TV22008<br/>
+          		  David Alfredo Parada Mendoza - PM13119<br/>
+              <a href="https://docs.github.com/es" class="text-white me-4" target="_blank">
+                <i class="fab fa-github"></i>Documentacion de GitHub</a>
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Section: Text -->
+      </div>
+      <!-- Grid container -->
+  
+      <!-- Copyright -->
+      <div
+           class="text-center p-2"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2024 Copyright: Desarrollo de Aplicaciones Web
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </div>
+  <!-- End of .container -->
+</body>
+</html>
